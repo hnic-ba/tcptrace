@@ -1,0 +1,13 @@
+#/etc/systemd/system/
+#Purpose: send tcp data to influxdb
+
+[Unit]
+Description=TCP data to influxDB
+After=network-online.target
+
+[Service]
+ExecStart=python3 /usr/local/bin/tcptrace.py 5
+User=root
+
+[Install]
+WantedBy=default.target
